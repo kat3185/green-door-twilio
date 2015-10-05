@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: green_door_development
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: green_door_test

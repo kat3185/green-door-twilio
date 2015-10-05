@@ -1,0 +1,21 @@
+<h1> Games </h1>
+
+<table>
+  <tr>
+    <th>Game Title</th>
+    <th>Short Title</th>
+    <th>Game URL</th>
+  </tr>
+  <% game_list.each do |game| %>
+  <tr>
+    <td><%=game.title%></td>
+    <td><%=game.short_title%></td>
+    <td><%=game.url%></td>
+    <td>Edit</td>
+    <td>Delete</td>
+  </tr>
+  <%end%>
+</table>
+
+<h3>Add a Game</h3>
+<%= erb :form, locals: {game: Game.new}, layout: false %>
