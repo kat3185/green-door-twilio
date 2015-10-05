@@ -29,8 +29,6 @@ def create_response(games, text)
   end
 end
 
-binding.pry
-
 get '/sms-quickstart' do
 
   body = params[:Body]
@@ -44,15 +42,25 @@ get '/sms-quickstart' do
   twiml.text
 end
 
+get "/" do
+  redirect "/games"
+end
+
 get '/games' do
   game_list = Game.all
   erb :index, locals: {game_list: game_list}
 end
 
-post "/games" do
-  new_game = Game.new(params[:game])
+get "/games/:id" do
+  binding.pry
+  game = Game.find(params[:id])
+  erb :edit, locals: {game: game}
+end
 
-  if new_game.save
+post "/games" do
+  my_game = Game.new(params[:game])
+
+  if my_game.save
     redirect "/games"
   else
     erb :index, locals: { game: game }

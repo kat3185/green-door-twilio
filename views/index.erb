@@ -2,16 +2,18 @@
 
 <table>
   <tr>
+    <th>Game Number</th>
     <th>Game Title</th>
     <th>Short Title</th>
     <th>Game URL</th>
   </tr>
   <% game_list.each do |game| %>
   <tr>
+    <td><%=game.id%></td>
     <td><%=game.title%></td>
     <td><%=game.short_title%></td>
     <td><%=game.url%></td>
-    <td>Edit</td>
+    <td><a href="/games/<%=game.id%>">Edit</a></td>
     <td>Delete</td>
   </tr>
   <%end%>
