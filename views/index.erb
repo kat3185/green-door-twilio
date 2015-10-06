@@ -16,7 +16,7 @@
     <td><a href="/games/<%=game.id%>">Edit</a></td>
     <td><form action="/DestroyGame" method="post">
       <input type="hidden" name="game_id" value="<%= game.id%>">
-      <input type="submit" value="Delete">
+      <input type="submit" class="button radius tiny" value="Delete">
     </form></td>
   </tr>
   <%end%>

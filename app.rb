@@ -2,7 +2,6 @@ require 'rubygems'
 require 'twilio-ruby'
 require 'sinatra'
 require "sinatra/activerecord"
-require 'pry'
 
 class Game < ActiveRecord::Base
   #model
@@ -30,7 +29,7 @@ def create_response(games, text)
   end
 end
 
-get '/sms-quickstart' do
+get "/sms-green-door" do
 
   body = params[:Body]
 
@@ -47,7 +46,7 @@ get "/" do
   redirect "/games"
 end
 
-get '/games' do
+get "/games" do
   game_list = Game.all
   erb :index, locals: {game_list: game_list}
 end
