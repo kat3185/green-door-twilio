@@ -14,7 +14,10 @@
     <td><%=game.short_title%></td>
     <td><%=game.url%></td>
     <td><a href="/games/<%=game.id%>">Edit</a></td>
-    <td>Delete</td>
+    <td><form action="/DestroyGame" method="post">
+      <input type="hidden" name="game_id" value="<%= game.id%>">
+      <input type="submit" value="Delete">
+    </form></td>
   </tr>
   <%end%>
 </table>

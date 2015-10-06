@@ -5,6 +5,7 @@ require "sinatra/activerecord"
 require 'pry'
 
 class Game < ActiveRecord::Base
+  #model
 end
 
 def find_game(text)
@@ -52,7 +53,6 @@ get '/games' do
 end
 
 get "/games/:id" do
-  binding.pry
   game = Game.find(params[:id])
   erb :edit, locals: {game: game}
 end
@@ -65,4 +65,10 @@ post "/games" do
   else
     erb :index, locals: { game: game }
   end
+end
+
+post "/DestroyGame" do
+  game_to_delete = Game.find(params[:game_id])
+  game_to_delete.destroy
+  redirect "/games"
 end
